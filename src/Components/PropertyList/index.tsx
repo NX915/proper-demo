@@ -61,12 +61,17 @@ export default function Album() {
                     {`${card.address.street}`}
                   </Typography>
                   <Typography>{`${card.address.city} ${card.address.province}`}</Typography>
+                  <Typography>{`${card.class} Property`}</Typography>
                   <Typography>{`For ${card.type}`}</Typography>
                   <Typography className={classes.bold}>{`$${
                     card.askingPriceFormmated
                       ? card.askingPriceFormmated
                       : card.askingPrice
                   }`}</Typography>
+                  <Typography>{`Listed on ${card.listDate.slice(
+                    2,
+                    10
+                  )}`}</Typography>
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary">

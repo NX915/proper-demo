@@ -21,14 +21,14 @@ const propertyList = [
       country: 'CA',
     },
     photoUrl: [
-      'https://source.unsplash.com/random/?house',
+      'https://source.unsplash.com/random/?house,exterior',
       'https://source.unsplash.com/random/?house,interior',
     ],
   },
   {
     mlsNumber: 'M87654321',
     status: 'U',
-    class: 'Commercial',
+    class: 'Residential',
     type: 'Rent',
     daysOnMarket: 10,
     occupancy: 'Flexible',
@@ -73,8 +73,8 @@ const propertyList = [
       country: 'CA',
     },
     photoUrl: [
-      'https://source.unsplash.com/random/?house',
-      'https://source.unsplash.com/random/?house,interior',
+      'https://source.unsplash.com/random/?building',
+      'https://source.unsplash.com/random/?building,interior',
     ],
   },
 ];
