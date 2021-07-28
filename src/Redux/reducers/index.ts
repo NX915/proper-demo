@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
 import propertyListReducer from './property';
 
-const allReducer = combineReducers({ propertyList: propertyListReducer });
+const allReducer = combineReducers({ property: propertyListReducer });
 export default allReducer;

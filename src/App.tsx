@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchPropertyList } from './Redux/actions';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import NavBar from './Components/Navbar';
+import ContentContainer from './Components/ContentContainer';
+import PropertyList from './Components/PropertyList';
+import Footer from './Components/Footer';
 
-function App() {
+export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPropertyList());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <CssBaseline />
+      <NavBar />
+      <ContentContainer />
+      <PropertyList />
+      <Footer />
+    </React.Fragment>
   );
 }
-
-export default App;

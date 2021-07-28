@@ -15,7 +15,9 @@ type Property = {
   daysOnMarket: number;
   occupancy: string;
   listDate: string;
+  askingPrice: number;
   updatedOn: string;
+  photoUrl: string[];
   address: {
     street: string;
     area: string;
