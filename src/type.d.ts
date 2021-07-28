@@ -16,6 +16,7 @@ type Property = {
   occupancy: string;
   listDate: string;
   askingPrice: number;
+  askingPriceFormmated?: string;
   updatedOn: string;
   photoUrl: string[];
   address: {

@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
+import PropertyList from '../PropertyList';
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -19,35 +20,43 @@ export default function ContentContainer() {
   const classes = useStyles();
 
   return (
-    <main className={classes.heroContent}>
-      <Container maxWidth="sm">
-        <Typography
-          component="h1"
-          variant="h2"
-          align="center"
-          color="textPrimary"
-          gutterBottom
-        >
-          Find with Proper
-        </Typography>
-        <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Welcome! Let&apos;s find some hot real estate properties around you!
-        </Typography>
-        <div className={classes.heroButtons}>
-          <Grid container spacing={2} justifyContent="center">
-            <Grid item>
-              <Button variant="contained" color="secondary">
-                View hot listings
-              </Button>
+    <main>
+      <div className={classes.heroContent}>
+        <Container maxWidth="sm">
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="textPrimary"
+            gutterBottom
+          >
+            Find with Proper
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="textSecondary"
+            paragraph
+          >
+            Welcome! Let&apos;s find some hot real estate properties around you!
+          </Typography>
+          <div className={classes.heroButtons}>
+            <Grid container spacing={2} justifyContent="center">
+              <Grid item>
+                <Button variant="contained" color="secondary">
+                  More hot listings
+                </Button>
+              </Grid>
+              <Grid item>
+                <Button variant="contained" color="primary">
+                  Saved listings
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Button variant="contained" color="primary">
-                Saved listings
-              </Button>
-            </Grid>
-          </Grid>
-        </div>
-      </Container>
+          </div>
+        </Container>
+      </div>
+      <PropertyList />
     </main>
   );
 }

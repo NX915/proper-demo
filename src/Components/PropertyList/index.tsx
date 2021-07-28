@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,7 +8,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchPropertyList } from '../../Redux/actions';
 
 const useStyles = makeStyles((theme) => ({
   cardGrid: {
@@ -38,6 +39,10 @@ export default function Album() {
   const propertyList = useSelector(
     (state: { property: PropertyState }) => state.property.list
   );
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (propertyList === null) dispatch(fetchPropertyList());
+  }, []);
 
   return (
     <Container className={classes.cardGrid} maxWidth="md">
@@ -57,11 +62,10 @@ export default function Album() {
                   </Typography>
                   <Typography>{`${card.address.city} ${card.address.province}`}</Typography>
                   <Typography>{`For ${card.type}`}</Typography>
-                  <Typography className={classes.bold}>{`$${card.askingPrice}${
-                    card.type.toLowerCase() === 'rent' ||
-                    card.type.toLowerCase() === 'lease'
-                      ? '/month'
-                      : ''
+                  <Typography className={classes.bold}>{`$${
+                    card.askingPriceFormmated
+                      ? card.askingPriceFormmated
+                      : card.askingPrice
                   }`}</Typography>
                 </CardContent>
                 <CardActions>
