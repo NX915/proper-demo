@@ -33,7 +33,13 @@ export const fetchPropertyList = () => {
     setTimeout(() => {
       dispatch({
         type: 'SET_PROPERTY_LIST',
-        payload: res,
+        payload: res.map((property) => ({
+          ...property,
+          askingPrice: (property.askingPrice / 100)
+            .toString()
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+        })),
       });
     }, Math.random() * 3000);
   };

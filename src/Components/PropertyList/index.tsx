@@ -57,9 +57,7 @@ export default function Album() {
                   </Typography>
                   <Typography>{`${card.address.city} ${card.address.province}`}</Typography>
                   <Typography>{`For ${card.type}`}</Typography>
-                  <Typography className={classes.bold}>{`$${
-                    card.askingPrice / 100
-                  }${
+                  <Typography className={classes.bold}>{`$${card.askingPrice}${
                     card.type.toLowerCase() === 'rent' ||
                     card.type.toLowerCase() === 'lease'
                       ? '/month'

@@ -14,7 +14,7 @@ const propertyList = [
       Date.now() - Math.floor(Math.random() * 2629743833)
     ).toISOString(),
     address: {
-      street: '123 Test Street',
+      street: '12 Down St',
       area: 'Parkdale',
       city: 'Toronto',
       province: 'ON',
@@ -40,7 +40,7 @@ const propertyList = [
       Date.now() - Math.floor(Math.random() * 2629743833)
     ).toISOString(),
     address: {
-      street: '321 Test Street',
+      street: '88 Hills Blv',
       area: 'Spadina',
       city: 'Toronto',
       province: 'ON',
@@ -66,8 +66,8 @@ const propertyList = [
       Date.now() - Math.floor(Math.random() * 2629743833)
     ).toISOString(),
     address: {
-      street: '321 Test Street',
-      area: 'Spadina',
+      street: '3 Lake Ave W',
+      area: 'York',
       city: 'Toronto',
       province: 'ON',
       country: 'CA',
