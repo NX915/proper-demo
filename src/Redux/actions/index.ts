@@ -29,24 +29,36 @@ export const displayMessage = (msg: string): Action => {
 
 export const fetchPropertyList = () => {
   return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: 'FETCH_START',
+    });
     const res = propertyList;
     setTimeout(() => {
-      dispatch({
-        type: 'SET_PROPERTY_LIST',
-        payload: res.map((property) => ({
-          ...property,
-          askingPriceFormmated: `${(property.askingPrice / 100)
-            .toString()
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}${
-            property.type.toLowerCase() === 'rent' ||
-            property.type.toLowerCase() === 'lease'
-              ? '/month'
-              : ''
-          }`,
-        })),
-      });
+      if (Math.floor(Math.random() * 2) === 0) {
+        dispatch({
+          type: 'FETCH_ERROR',
+          payload: `Sorry! Something Went Wrong (DSEx2423)`,
+        });
+      } else {
+        dispatch({ type: 'FETCH_SUCCESS' });
+        dispatch({
+          type: 'SET_PROPERTY_LIST',
+          payload: res.map((property) => ({
+            ...property,
+            askingPriceFormmated: `${(property.askingPrice / 100)
+              .toString()
+              .toString()
+              .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}${
+              property.type.toLowerCase() === 'rent' ||
+              property.type.toLowerCase() === 'lease'
+                ? '/month'
+                : ''
+            }`,
+          })),
+        });
+      }
     }, Math.random() * 3000);
+
   };
 };
 
@@ -57,7 +69,7 @@ export const setProperty = (data: Property): SetPropertyAction => {
   };
 };
 
-export const clearProperty = (): Action => {
+export const clearProperty = (): ClearPropertyAction => {
   return {
     type: 'CLEAR_PROPERTY',
   };

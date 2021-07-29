@@ -66,3 +66,23 @@ type PropertyAction =
   | SetPropertyAction
   | SetPropertyListAction
   | ClearPropertyAction;
+
+type FetchStartAction = {
+  type: 'FETCH_START';
+};
+
+type FetchSuccessAction = {
+  type: 'FETCH_SUCCESS';
+};
+
+type FetchErrorAction = {
+  type: 'FETCH_ERROR';
+  payload: string;
+};
+
+type statusAction = FetchStartAction | FetchSuccessAction | FetchErrorAction;
+
+interface StatusState {
+  loading: boolean;
+  message: string | null;
+}
